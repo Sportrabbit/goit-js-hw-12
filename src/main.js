@@ -8,6 +8,7 @@ import { getPhotos } from './js/pixabay-api';
 import { renderPhotos } from './js/render-functions';
 import { refs } from './js/render-functions';
 
+
 class FormHandler {
     constructor() {
         this.userInput = '';
