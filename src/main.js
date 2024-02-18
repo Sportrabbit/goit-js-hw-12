@@ -107,7 +107,7 @@ class FormHandler {
       }
 }
 
-const FormHandler = new FormHandler();
+const formHandler = new FormHandler();
 refs.form.addEventListener('submit', e => formHandler.onFormSubmit(e));
 refs.buttonLoader.addEventListener('click', () =>
 formHandler.loadMore()
