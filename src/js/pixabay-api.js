@@ -7,14 +7,15 @@ export async function getPhotos(userRequest, currentPage) {
     const url = BASE_URL + END_POINTS;
 
     const params = {
-        apikey: API_KEY,
+        key: API_KEY,
         q: userRequest,
         image_type: 'photo',
         orientation: 'horizontal',
-        per_page: 1,
+        per_page: 15,
         page: currentPage,
     };
 
     const response = await axios.get(url, {params});
+    
     return response.data;
 }

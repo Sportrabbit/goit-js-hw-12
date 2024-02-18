@@ -1,6 +1,6 @@
 import SimpleLightbox from "simplelightbox";
 
-let LightBox;
+let lightBox;
 
 export const refs = {
     formElem: document.querySelector('.form'),
@@ -34,9 +34,9 @@ export function renderPhotos(photos) {
     refs.gallery.insertAdjacentHTML('beforeend', markup);
 
     if (typeof LightBox !== 'undefined') {
-        LightBox.refresh();
+        lightBox.refresh();
     } else {
-        LightBox = new SimpleLightbox('.gallery a', {
+        lightBox = new SimpleLightbox('.gallery a', {
             captionsData: 'alt',
             captionDelay: 250,
         });
