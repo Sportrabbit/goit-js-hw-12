@@ -72,11 +72,11 @@ class FormHandler {
     }
 
     showLoadBtn() {
-        refs.buttonLoader.classList.remove('hidden')
+        refs.buttonLoader.classList.remove('hidden');
     }
 
     hideLoadBtn() {
-        refs.buttonLoader.classList.add('hidden')
+        refs.buttonLoader.classList.add('hidden');
     }
 
     showLoader() {
@@ -108,7 +108,7 @@ class FormHandler {
 }
 
 const formHandler = new FormHandler();
-refs.form.addEventListener('submit', e => formHandler.onFormSubmit(e));
+refs.formElem.addEventListener('submit', e => formHandler.onFormSubmit(e));
 refs.buttonLoader.addEventListener('click', () =>
 formHandler.loadMore()
 );
