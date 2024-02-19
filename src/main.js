@@ -59,16 +59,20 @@ class FormHandler {
         e.target.reset();
     }
 
-    async onloadMore() {
+    async loadMore() {
         this.page += 1;
         this.showLoader();
-        const data = await getPhotos();
+        const data = await getPhotos(this.userInput, this.page);
         renderPhotos(data.results);
-        hideLoader();
-        window.scrollBy({
-          top: height * 2,
-          behavior: 'smooth',
-        });
+        this.hideLoader();
+        const firstPhotoEltment = refs.gallery.firstElementChild;
+        if (firstPhotoEltment) {
+            const height = firstPhotoEltment.getBoundingClientRect().height;
+            window.scrollBy({
+                top: height * 2,
+                behavior: 'smooth',
+            });
+        }
     }
 
     showLoadBtn() {
