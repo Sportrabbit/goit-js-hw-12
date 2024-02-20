@@ -36,8 +36,8 @@ class FormHandler {
 
         try {
             const data = await getPhotos(this.userInput, this.page);
-            this.maxPage = Math.ceil(data.totalResults / 15);
-            if (data.results.length === 0) {
+            this.maxPage = Math.ceil(data.totalHits / 15);
+            if (data.hits.length === 0) {
                 this.hideLoader();
                 iziToast.error({
                     message: 'Sorry, there are no images matching your search query. Please try again!',
@@ -45,7 +45,7 @@ class FormHandler {
                     transitionIn: 'fadeInLeft',
                 });
             } else {
-                renderPhotos(data.results);
+                renderPhotos(data.hits);
             }
         } catch (err) {
             iziToast.error({
@@ -63,7 +63,7 @@ class FormHandler {
         this.page += 1;
         this.showLoader();
         const data = await getPhotos(this.userInput, this.page);
-        renderPhotos(data.results);
+        renderPhotos(data.hits);
         this.hideLoader();
         const firstPhotoEltment = refs.gallery.firstElementChild;
         if (firstPhotoEltment) {
@@ -106,7 +106,7 @@ class FormHandler {
                 transitionIn: 'fadeInLeft'
             });
         } else {
-          refs.btnLoadMore.classList.remove('hidden');
+          refs.buttonLoader.classList.remove('hidden');
         }
       }
 }
